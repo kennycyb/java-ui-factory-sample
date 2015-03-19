@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/185/trunk/java-ui-factory-sample/src/main/java/com/wpl/ui/samples/components/swing
+END
+JComboBoxSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/157/trunk/java-ui-factory-sample/src/main/java/com/wpl/ui/samples/components/swing/JComboBoxSample.java
+END
+JProgressBarSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/157/trunk/java-ui-factory-sample/src/main/java/com/wpl/ui/samples/components/swing/JProgressBarSample.java
+END
+JRadioButtonSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/157/trunk/java-ui-factory-sample/src/main/java/com/wpl/ui/samples/components/swing/JRadioButtonSample.java
+END
+JListSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/185/trunk/java-ui-factory-sample/src/main/java/com/wpl/ui/samples/components/swing/JListSample.java
+END
+TabbedPaneSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/157/trunk/java-ui-factory-sample/src/main/java/com/wpl/ui/samples/components/swing/TabbedPaneSample.java
+END
+JSpinnerSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/185/trunk/java-ui-factory-sample/src/main/java/com/wpl/ui/samples/components/swing/JSpinnerSample.java
+END
+JSliderSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/157/trunk/java-ui-factory-sample/src/main/java/com/wpl/ui/samples/components/swing/JSliderSample.java
+END
+JToolBarSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/185/trunk/java-ui-factory-sample/src/main/java/com/wpl/ui/samples/components/swing/JToolBarSample.java
+END
+CustomJButton.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/185/trunk/java-ui-factory-sample/src/main/java/com/wpl/ui/samples/components/swing/CustomJButton.java
+END

@@ -12,19 +12,19 @@ public class Person implements Serializable {
 	private String mFirstName;
 	private String mLastName;
 
-	public String getmFirstName() {
+	public String getFirstName() {
 		return mFirstName;
 	}
 
-	public void setmFirstName(String mFirstName) {
+	public void setFirstName(String mFirstName) {
 		this.mFirstName = mFirstName;
 	}
 
-	public String getmLastName() {
+	public String getLastName() {
 		return mLastName;
 	}
 
-	public void setmLastName(String mLastName) {
+	public void setLastName(String mLastName) {
 		this.mLastName = mLastName;
 	}
 }

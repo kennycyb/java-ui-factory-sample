@@ -24,21 +24,21 @@ import javax.swing.SpringLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiColumns;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiRows;
-import com.wpl.ui.factory.annotations.UiScrollable;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.constraints.UiSpringGridConstraint;
-import com.wpl.ui.factory.annotations.frame.UiFrameCloseOperation;
-import com.wpl.ui.factory.annotations.frame.UiWindowPosition;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.SpringGridType;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiColumns;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiRows;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiScrollable;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiSpringGridConstraint;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiFrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiWindowPosition;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.SpringGridType;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 /**
- * 
+ *
  * @since 1.0
  */
 @UiText("Sample - SpringLayout - GRID")
@@ -48,12 +48,11 @@ import com.wpl.ui.factory.enums.WindowPosition;
 @UiSpringGridConstraint(gridType = SpringGridType.GRID)
 public class SpringLayoutGridSample extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static Logger LOGGER = LoggerFactory
-			.getLogger(SpringLayoutGridSample.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(SpringLayoutGridSample.class);
 
 	@UiText("Host:")
 	JLabel label1;
@@ -77,7 +76,7 @@ public class SpringLayoutGridSample extends JFrame {
 	@UiText("ABC\nDEF\nHIJ\n")
 	JTextArea textarea;
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		SwingFactory.create(SpringLayoutGridSample.class).setVisible(true);
 	}
 }

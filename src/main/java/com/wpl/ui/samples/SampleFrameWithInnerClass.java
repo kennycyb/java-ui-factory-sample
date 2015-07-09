@@ -25,19 +25,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiName;
-import com.wpl.ui.factory.annotations.UiScrollable;
-import com.wpl.ui.factory.annotations.UiSize;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.UiType;
-import com.wpl.ui.factory.annotations.button.UiDefaultButton;
-import com.wpl.ui.factory.annotations.constraints.UiBorderLayoutConstraint;
-import com.wpl.ui.factory.annotations.frame.UiFrameCloseOperation;
-import com.wpl.ui.factory.annotations.frame.UiFrameResizable;
-import com.wpl.ui.factory.enums.BorderLayoutConstraint;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiName;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiScrollable;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiSize;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiType;
+import com.github.kennycyb.uifactory.core.factory.annotations.button.UiDefaultButton;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiBorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiFrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiFrameResizable;
+import com.github.kennycyb.uifactory.core.factory.enums.BorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
 
 @UiText("Sample Frame with Inner Classes")
 @UiSize(height = 600, width = 800)
@@ -50,7 +50,7 @@ public class SampleFrameWithInnerClass extends JFrame {
 	class ContentPanel extends JPanel {
 
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 
@@ -58,7 +58,7 @@ public class SampleFrameWithInnerClass extends JFrame {
 		class NorthContent extends JPanel {
 
 			/**
-			 * 
+			 *
 			 */
 			private static final long serialVersionUID = 1L;
 
@@ -66,7 +66,7 @@ public class SampleFrameWithInnerClass extends JFrame {
 			class NorthInnerContent extends JPanel {
 
 				/**
-				 * 
+				 *
 				 */
 				private static final long serialVersionUID = 1L;
 
@@ -89,7 +89,7 @@ public class SampleFrameWithInnerClass extends JFrame {
 		class SouthContent extends JPanel {
 
 			/**
-			 * 
+			 *
 			 */
 			private static final long serialVersionUID = 1L;
 
@@ -116,13 +116,12 @@ public class SampleFrameWithInnerClass extends JFrame {
 	class CommandPanel extends JPanel {
 
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 
 		/**
-		 * - Default button. - Display text is "Start" - ID of this component is
-		 * "start"
+		 * - Default button. - Display text is "Start" - ID of this component is "start"
 		 */
 		@SuppressWarnings("unused")
 		@UiDefaultButton
@@ -136,8 +135,8 @@ public class SampleFrameWithInnerClass extends JFrame {
 	}
 
 	/**
-     * 
-     */
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@UiType(ContentPanel.class)
@@ -151,30 +150,30 @@ public class SampleFrameWithInnerClass extends JFrame {
 	/**
 	 * As @AutoWired - this method will be called when "start" button is called.
 	 */
-	void onStart_actionPerformed(ActionEvent e) {
+	void onStart_actionPerformed(final ActionEvent e) {
 		mCenter.content.append("onStart_actionPerformed\n");
 	}
 
 	/**
 	 * As @AutoWired - this method will be called when "stop" button is called.
 	 */
-	void onStop_actionPerformed(ActionEvent e) {
+	void onStop_actionPerformed(final ActionEvent e) {
 		mCenter.content.append("onStop_actionPerformed\n");
 	}
 
-	void onSouthButton1_actionPerformed(ActionEvent e) {
+	void onSouthButton1_actionPerformed(final ActionEvent e) {
 		mCenter.content.append("onSouthButton1_actionPerformed\n");
 	}
 
-	void onNorthButton_actionPerformed(ActionEvent e) {
+	void onNorthButton_actionPerformed(final ActionEvent e) {
 		mCenter.content.append("onNorthButton_actionPerformed\n");
 	}
 
-	void onSouthButton_actionPerformed(ActionEvent e) {
+	void onSouthButton_actionPerformed(final ActionEvent e) {
 		mCenter.content.append("onSouthButton_actionPerformed\n");
 	}
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		SwingFactory.create(SampleFrameWithInnerClass.class).setVisible(true);
 	}
 }

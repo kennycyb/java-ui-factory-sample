@@ -38,27 +38,27 @@ import javax.swing.JPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiInit;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.components.JFrameProperties;
-import com.wpl.ui.factory.annotations.constraints.UiBorderLayoutConstraint;
-import com.wpl.ui.factory.annotations.constraints.UiFlowLayoutConstraint;
-import com.wpl.ui.factory.enums.BorderLayoutConstraint;
-import com.wpl.ui.factory.enums.FlowLayoutConstraint;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiInit;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JFrameProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiBorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiFlowLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.BorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.FlowLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 /**
- * 
+ *
  * @since 1.0
  */
 @JFrameProperties(frameCloseOperation = FrameCloseOperation.EXIT, height = 600, width = 800, windowPosition = WindowPosition.CENTER)
 @UiLayout(BorderLayout.class)
 public class PictureViewer extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -67,7 +67,7 @@ public class PictureViewer extends JFrame {
 	public class Viewer extends JPanel {
 
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 
@@ -92,14 +92,11 @@ public class PictureViewer extends JFrame {
 
 			mSource = mSourceImage;
 
-			long start = System.currentTimeMillis();
+			final long start = System.currentTimeMillis();
 
-			mScaled = mSource.getScaledInstance(getWidth(), getHeight(),
-					Image.SCALE_FAST);
+			mScaled = mSource.getScaledInstance(getWidth(), getHeight(), Image.SCALE_FAST);
 
-			LOGGER.debug("Time for prepare image: {}", System
-					.currentTimeMillis()
-					- start);
+			LOGGER.debug("Time for prepare image: {}", System.currentTimeMillis() - start);
 		}
 
 		private int width, height;
@@ -110,36 +107,31 @@ public class PictureViewer extends JFrame {
 				return;
 			}
 
-			long start = System.currentTimeMillis();
+			final long start = System.currentTimeMillis();
 
 			mSource = mSourceImage;
 
-			if (mVolatiledImage == null || width != getWidth()
-					|| height != getHeight()) {
+			if (mVolatiledImage == null || width != getWidth() || height != getHeight()) {
 
 				width = getWidth();
 				height = getHeight();
 
-				GraphicsEnvironment ge = GraphicsEnvironment
-						.getLocalGraphicsEnvironment();
-				GraphicsConfiguration gc = ge.getDefaultScreenDevice()
-						.getDefaultConfiguration();
+				final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+				final GraphicsConfiguration gc = ge.getDefaultScreenDevice().getDefaultConfiguration();
 
-				mVolatiledImage = gc.createCompatibleVolatileImage(width,
-						height);
+				mVolatiledImage = gc.createCompatibleVolatileImage(width, height);
 
 				mG2d = mVolatiledImage.createGraphics();
 			}
 
 			do {
 
-				Graphics2D g = mG2d;
+				final Graphics2D g = mG2d;
 
 				try {
 					// g = mVolatiledImage.createGraphics();
 
-					g.drawImage(mSource, 0, 0, getWidth(), getHeight(), 0, 0,
-							mSource.getWidth(), mSource.getHeight(), this);
+					g.drawImage(mSource, 0, 0, getWidth(), getHeight(), 0, 0, mSource.getWidth(), mSource.getHeight(), this);
 
 				} finally {
 					// It's always best to dispose of your Graphics objects.
@@ -150,9 +142,7 @@ public class PictureViewer extends JFrame {
 
 			} while (mVolatiledImage.contentsLost());
 
-			LOGGER.debug("Time for prepare image: {}", System
-					.currentTimeMillis()
-					- start);
+			LOGGER.debug("Time for prepare image: {}", System.currentTimeMillis() - start);
 		}
 
 		@Override
@@ -162,13 +152,11 @@ public class PictureViewer extends JFrame {
 
 			prepareNonVolatiled();
 
-			long start = System.currentTimeMillis();
+			final long start = System.currentTimeMillis();
 
 			g.drawImage(mScaled, 0, 0, this);
 
-			LOGGER.debug("Time taken in paintComponent: {}", System
-					.currentTimeMillis()
-					- start);
+			LOGGER.debug("Time taken in paintComponent: {}", System.currentTimeMillis() - start);
 		}
 	}
 
@@ -181,7 +169,7 @@ public class PictureViewer extends JFrame {
 	@UiFlowLayoutConstraint(FlowLayoutConstraint.CENTER)
 	class CommandButtons extends JPanel {
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 
@@ -203,7 +191,7 @@ public class PictureViewer extends JFrame {
 			return;
 		}
 
-		long start = System.currentTimeMillis();
+		final long start = System.currentTimeMillis();
 
 		if (++mCurrentIndex >= mImages.size()) {
 			mCurrentIndex = 0;
@@ -225,31 +213,26 @@ public class PictureViewer extends JFrame {
 
 		doSlideShow = true;
 
-		new Thread(new Runnable() {
+		new Thread(() -> {
 
-			@Override
-			public void run() {
+			final long start = System.currentTimeMillis();
 
-				long start = System.currentTimeMillis();
+			mCurrentIndex = 0;
 
-				mCurrentIndex = 0;
-
-				while (doSlideShow) {
-					onNext_actionPerformed(e);
-					if (mCurrentIndex == 0 || mCurrentIndex == 10) {
-						break;
-					}
-					try {
-						Thread.sleep(10);
-					} catch (final InterruptedException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+			while (doSlideShow) {
+				onNext_actionPerformed(e);
+				if (mCurrentIndex == 0 || mCurrentIndex == 10) {
+					break;
 				}
-
-				LOGGER.debug("Slide Show Time: {}", System.currentTimeMillis()
-						- start);
+				try {
+					Thread.sleep(10);
+				} catch (final InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
+
+			LOGGER.debug("Slide Show Time: {}", System.currentTimeMillis() - start);
 		}).start();
 
 	}
@@ -261,7 +244,7 @@ public class PictureViewer extends JFrame {
 	void init() {
 		// final File dir = new File("docs/samples");
 
-		File dir = new File("/media/Backup/Backup/My Pictures/Wedding/ALL");
+		final File dir = new File("/media/Backup/Backup/My Pictures/Wedding/ALL");
 		final File[] files = dir.listFiles();
 
 		for (final File f : files) {
@@ -277,7 +260,7 @@ public class PictureViewer extends JFrame {
 		setImage(mImages.get(0));
 	}
 
-	public BufferedImage loadFromFile(String file) throws IOException {
+	public BufferedImage loadFromFile(final String file) throws IOException {
 
 		return ImageIO.read(new File(file));
 	}
@@ -288,7 +271,7 @@ public class PictureViewer extends JFrame {
 
 		try {
 			mSourceImage = loadFromFile(file);
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			e.printStackTrace();
 			return;
 		}

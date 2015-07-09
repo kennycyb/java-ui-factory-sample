@@ -26,24 +26,24 @@ import javax.swing.SpringLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiCursor;
-import com.wpl.ui.factory.annotations.UiEnabled;
-import com.wpl.ui.factory.annotations.UiIcon;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.UiToolTip;
-import com.wpl.ui.factory.annotations.UiType;
-import com.wpl.ui.factory.annotations.constraints.UiSpringGridConstraint;
-import com.wpl.ui.factory.annotations.frame.UiFrameCloseOperation;
-import com.wpl.ui.factory.annotations.frame.UiWindowPosition;
-import com.wpl.ui.factory.enums.CursorType;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiCursor;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiEnabled;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiIcon;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiToolTip;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiType;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiSpringGridConstraint;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiFrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiWindowPosition;
+import com.github.kennycyb.uifactory.core.factory.enums.CursorType;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 import com.wpl.ui.samples.components.swing.CustomJButton;
 
 /**
- * 
+ *
  * @since 1.0
  */
 @UiWindowPosition(WindowPosition.CENTER)
@@ -53,7 +53,7 @@ import com.wpl.ui.samples.components.swing.CustomJButton;
 @UiSpringGridConstraint(cols = 2)
 public class SampleButton extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 

@@ -25,20 +25,20 @@ import javax.swing.event.ChangeEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiColumns;
-import com.wpl.ui.factory.annotations.UiEnabled;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.components.JFrameProperties;
-import com.wpl.ui.factory.annotations.components.JSliderProperties;
-import com.wpl.ui.factory.annotations.constraints.UiSpringGridConstraint;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.Orientation;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiColumns;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiEnabled;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JFrameProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JSliderProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiSpringGridConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.Orientation;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 /**
- * 
+ *
  * @since 1.0
  */
 @JFrameProperties(frameCloseOperation = FrameCloseOperation.EXIT, title = "JSliderSample", windowPosition = WindowPosition.CENTER)
@@ -47,7 +47,7 @@ import com.wpl.ui.factory.enums.WindowPosition;
 public class JSliderSample extends JFrame {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -76,15 +76,15 @@ public class JSliderSample extends JFrame {
 	@UiEnabled(false)
 	JTextField verticalValue;
 
-	void onHorizontal_stateChanged(ChangeEvent e) {
+	void onHorizontal_stateChanged(final ChangeEvent e) {
 		horizontalValue.setText(String.valueOf(horizontal.getValue()));
 	}
 
-	void onVertical_stateChanged(ChangeEvent e) {
+	void onVertical_stateChanged(final ChangeEvent e) {
 		verticalValue.setText(String.valueOf(vertical.getValue()));
 	}
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		SwingFactory.create(JSliderSample.class).setVisible(true);
 	}
 }

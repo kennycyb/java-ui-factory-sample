@@ -21,21 +21,21 @@ import javax.swing.JList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.ext.MutableList;
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiInit;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiResource;
-import com.wpl.ui.factory.annotations.UiScrollable;
-import com.wpl.ui.factory.annotations.UiSimpleItems;
-import com.wpl.ui.factory.annotations.components.JFrameProperties;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.ScrollBarPolicy;
-import com.wpl.ui.factory.enums.WindowPosition;
-import com.wpl.ui.layout.managers.VerticalFlowLayout;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiInit;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiResource;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiScrollable;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiSimpleItems;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JFrameProperties;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.ScrollBarPolicy;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.layout.managers.VerticalFlowLayout;
+import com.github.kennycyb.uifactory.ext.MutableList;
 
 /**
- * 
+ *
  * @since 1.0
  */
 @JFrameProperties(frameCloseOperation = FrameCloseOperation.EXIT, title = "JComboBoxSample", windowPosition = WindowPosition.CENTER)
@@ -43,7 +43,7 @@ import com.wpl.ui.layout.managers.VerticalFlowLayout;
 public class JListSample extends JFrame {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 

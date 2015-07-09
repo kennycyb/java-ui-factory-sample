@@ -17,11 +17,12 @@ package com.wpl.ui.samples.notepad;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.InputEvent;
 import java.awt.event.InputMethodEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
-import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import java.util.Date;
 
 import javax.swing.AbstractAction;
@@ -35,26 +36,26 @@ import javax.swing.KeyStroke;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiAutoWired;
-import com.wpl.ui.factory.annotations.UiComponentOf;
-import com.wpl.ui.factory.annotations.UiFont;
-import com.wpl.ui.factory.annotations.UiInit;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiResource;
-import com.wpl.ui.factory.annotations.UiScrollable;
-import com.wpl.ui.factory.annotations.UiSize;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.constraints.UiBorderLayoutConstraint;
-import com.wpl.ui.factory.annotations.frame.UiFrameCloseOperation;
-import com.wpl.ui.factory.annotations.frame.UiFrameMenu;
-import com.wpl.ui.factory.annotations.frame.UiFrameResizable;
-import com.wpl.ui.factory.annotations.frame.UiWindowPosition;
-import com.wpl.ui.factory.enums.BorderLayoutConstraint;
-import com.wpl.ui.factory.enums.FontStyle;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.ScrollBarPolicy;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiAutoWired;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiComponentOf;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiFont;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiInit;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiResource;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiScrollable;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiSize;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiBorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiFrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiFrameMenu;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiFrameResizable;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiWindowPosition;
+import com.github.kennycyb.uifactory.core.factory.enums.BorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.FontStyle;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.ScrollBarPolicy;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 /**
  * Sample of Notepad Application.
@@ -72,8 +73,8 @@ public class Notepad extends JFrame {
 	private static Logger LOGGER = LoggerFactory.getLogger(Notepad.class);
 
 	/**
-     * 
-     */
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@UiBorderLayoutConstraint(BorderLayoutConstraint.CENTER)
@@ -97,78 +98,69 @@ public class Notepad extends JFrame {
 		undo.setEnabled(false);
 		cut.setEnabled(false);
 
-		this.getRootPane()
-				.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
-				.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE,
-						KeyEvent.ALT_DOWN_MASK), "doNothing");
+		getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, InputEvent.ALT_DOWN_MASK), "doNothing");
 
-		this.getRootPane()
-				.getInputMap()
-				.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE,
-						KeyEvent.ALT_DOWN_MASK), "doNothing");
+		getRootPane().getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, InputEvent.ALT_DOWN_MASK), "doNothing");
 
-		this.getRootPane().getActionMap()
-				.put("doNothing", new AbstractAction("doNothing") {
-					/**
-					 * 
-					 */
-					private static final long serialVersionUID = 1L;
+		getRootPane().getActionMap().put("doNothing", new AbstractAction("doNothing") {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						System.out.println("doNothing");
-					}
-				});
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				System.out.println("doNothing");
+			}
+		});
 
-		content.getInputMap().put(
-				KeyStroke.getKeyStroke(KeyEvent.VK_SPACE,
-						KeyEvent.ALT_DOWN_MASK), "doNothing");
+		content.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, InputEvent.ALT_DOWN_MASK), "doNothing");
 
 		LOGGER.debug("Notepad.init");
 	}
 
 	/**
 	 * Invoked when the caret within composed text has changed.
-	 * 
+	 *
 	 * @param event
 	 */
-	void onContext_caretPositionChanged(InputMethodEvent event) {
+	void onContext_caretPositionChanged(final InputMethodEvent event) {
 		LOGGER.debug("onContext_caretPositionChanged");
 	}
 
-	void onContext_inputMethodTextChanged(InputMethodEvent event) {
+	void onContext_inputMethodTextChanged(final InputMethodEvent event) {
 		LOGGER.debug("onContext_caretPositionChanged");
 	}
 
-	void onThis_windowClosing(WindowEvent e) {
+	void onThis_windowClosing(final WindowEvent e) {
 		LOGGER.debug("onThis_windowClosing: new state={}", e.getNewState());
 	}
 
-	void onThis_windowActivated(WindowEvent e) {
+	void onThis_windowActivated(final WindowEvent e) {
 		LOGGER.debug("onNotepad_windowActivated");
 	}
 
-	void onThis_windowGainedFocus(WindowEvent e) {
+	void onThis_windowGainedFocus(final WindowEvent e) {
 		LOGGER.debug("onNotepad_windowGainedFocus");
 	}
 
-	void onThis_windowLostFocus(WindowEvent e) {
+	void onThis_windowLostFocus(final WindowEvent e) {
 		LOGGER.debug("onNotepad_windowLostFocus");
 	}
 
 	// TODO:
-	void onMenuBar_undo_itemStateChanged(ItemEvent e) {
+	void onMenuBar_undo_itemStateChanged(final ItemEvent e) {
 
 	}
 
-	void onMenuBar_itemStateChanged(ItemEvent e) {
+	void onMenuBar_itemStateChanged(final ItemEvent e) {
 		LOGGER.debug("itemStateChanged: {} ", e.getItem());
 	}
 
 	@SuppressWarnings("unused")
-	private void onMenuBar_actionPerformed(ActionEvent e) {
+	private void onMenuBar_actionPerformed(final ActionEvent e) {
 
-		String actionCommand = e.getActionCommand();
+		final String actionCommand = e.getActionCommand();
 
 		if (actionCommand == null) {
 			LOGGER.debug("menu-clicked=null");
@@ -187,12 +179,11 @@ public class Notepad extends JFrame {
 		}
 
 		if (actionCommand.equals("edit.datetime")) {
-			content.append(SimpleDateFormat.getDateTimeInstance().format(
-					new Date()));
+			content.append(DateFormat.getDateTimeInstance().format(new Date()));
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		SwingFactory.create(Notepad.class).setVisible(true);
 	}
 }

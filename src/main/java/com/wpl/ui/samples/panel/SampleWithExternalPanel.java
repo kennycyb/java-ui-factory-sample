@@ -23,35 +23,35 @@ import javax.swing.JOptionPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiInit;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.components.JFrameProperties;
-import com.wpl.ui.factory.annotations.constraints.UiBorderLayoutConstraint;
-import com.wpl.ui.factory.enums.BorderLayoutConstraint;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiInit;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JFrameProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiBorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.BorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 /**
- * 
+ *
  * @since 1.0
  */
 
 @UiLayout(BorderLayout.class)
-@JFrameProperties(title = "Sample With External Panel", windowPosition = WindowPosition.CENTER, width = 800, height = 600, frameCloseOperation = FrameCloseOperation.EXIT)
+@JFrameProperties(title = "Sample With External Panel", windowPosition = WindowPosition.CENTER, width = 800, height = 600,
+		frameCloseOperation = FrameCloseOperation.EXIT)
 public class SampleWithExternalPanel extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -4487401985785301759L;
 
-	private static Logger LOGGER = LoggerFactory
-			.getLogger(SampleWithExternalPanel.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(SampleWithExternalPanel.class);
 
 	@UiBorderLayoutConstraint(BorderLayoutConstraint.CENTER)
 	ExternalPanel external;
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		SwingFactory.create(SampleWithExternalPanel.class).setVisible(true);
 	}
 
@@ -59,16 +59,14 @@ public class SampleWithExternalPanel extends JFrame {
 	void init() {
 	}
 
-	void onExternal_customEvent(CustomEventArgs customEventObject) {
+	void onExternal_customEvent(final CustomEventArgs customEventObject) {
 		LOGGER.debug("customEvent {}", customEventObject.getMessage());
-		JOptionPane.showMessageDialog(this, "onExternal_customEvent: "
-				+ customEventObject.getMessage());
+		JOptionPane.showMessageDialog(this, "onExternal_customEvent: " + customEventObject.getMessage());
 	}
 
-	void onExternal_exitEvent(CustomEventArgs customEventObject) {
-		JOptionPane.showMessageDialog(this, "onExternal_exitEvent: "
-				+ customEventObject.getMessage());
-		this.setVisible(false);
-		this.dispose();
+	void onExternal_exitEvent(final CustomEventArgs customEventObject) {
+		JOptionPane.showMessageDialog(this, "onExternal_exitEvent: " + customEventObject.getMessage());
+		setVisible(false);
+		dispose();
 	}
 }

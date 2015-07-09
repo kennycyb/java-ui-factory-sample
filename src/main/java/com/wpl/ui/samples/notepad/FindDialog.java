@@ -21,15 +21,15 @@ import javax.swing.SpringLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.frame.UiWindowPosition;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiWindowPosition;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 @UiWindowPosition(WindowPosition.CENTER)
 @UiLayout(SpringLayout.class)
 public class FindDialog extends JPanel {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	@SuppressWarnings("unused")

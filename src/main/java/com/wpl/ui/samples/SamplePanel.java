@@ -30,19 +30,19 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiColumns;
-import com.wpl.ui.factory.annotations.UiEchoChar;
-import com.wpl.ui.factory.annotations.UiEnabled;
-import com.wpl.ui.factory.annotations.UiIcon;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiRows;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.UiTextFormat;
-import com.wpl.ui.factory.annotations.UiType;
-import com.wpl.ui.factory.annotations.constraints.UiSpringGridConstraint;
-import com.wpl.ui.factory.annotations.frame.UiWindowPosition;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiColumns;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiEchoChar;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiEnabled;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiIcon;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiRows;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiTextFormat;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiType;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiSpringGridConstraint;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiWindowPosition;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 @UiWindowPosition(WindowPosition.CENTER)
 @UiLayout(SpringLayout.class)
@@ -50,8 +50,8 @@ import com.wpl.ui.factory.enums.WindowPosition;
 public class SamplePanel extends JPanel {
 
 	/**
-     * 
-     */
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@UiText("JTextArea")

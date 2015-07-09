@@ -24,20 +24,20 @@ import javax.swing.JTextField;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiRows;
-import com.wpl.ui.factory.annotations.UiScrollable;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.frame.UiFrameCloseOperation;
-import com.wpl.ui.factory.annotations.frame.UiWindowPosition;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.ScrollBarPolicy;
-import com.wpl.ui.factory.enums.WindowPosition;
-import com.wpl.ui.layout.managers.VerticalFlowLayout;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiRows;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiScrollable;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiFrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiWindowPosition;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.ScrollBarPolicy;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.layout.managers.VerticalFlowLayout;
 
 /**
- * 
+ *
  * @since 1.0
  */
 @UiLayout(VerticalFlowLayout.class)
@@ -46,13 +46,12 @@ import com.wpl.ui.layout.managers.VerticalFlowLayout;
 @UiWindowPosition(WindowPosition.FULL)
 public class FullScreenJFrame extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@SuppressWarnings("unused")
-	private static Logger LOGGER = LoggerFactory
-			.getLogger(VerticalFlowLayoutSample.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(VerticalFlowLayoutSample.class);
 
 	@UiText("line 1")
 	JLabel line1;
@@ -71,7 +70,7 @@ public class FullScreenJFrame extends JFrame {
 	@UiRows(5)
 	JTextArea textarea5;
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		SwingFactory.create(FullScreenJFrame.class).setVisible(true);
 	}
 }

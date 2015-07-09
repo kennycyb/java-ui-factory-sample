@@ -15,24 +15,24 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiScrollable;
-import com.wpl.ui.factory.annotations.components.JButtonProperties;
-import com.wpl.ui.factory.annotations.components.JFrameProperties;
-import com.wpl.ui.factory.annotations.components.JLabelProperties;
-import com.wpl.ui.factory.annotations.components.JTextAreaProperties;
-import com.wpl.ui.factory.annotations.components.JTextFieldProperties;
-import com.wpl.ui.factory.annotations.constraints.UiBorderLayoutConstraint;
-import com.wpl.ui.factory.enums.BorderLayoutConstraint;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiScrollable;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JButtonProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JFrameProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JLabelProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JTextAreaProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JTextFieldProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiBorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.BorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 @JFrameProperties(frameCloseOperation = FrameCloseOperation.DISPOSE, title = "Decrypt", windowPosition = WindowPosition.CENTER, height = 400, width = 400)
 @UiLayout(BorderLayout.class)
 public class GpgDecrypt extends JFrame {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 3789607028519367715L;
 
@@ -40,7 +40,7 @@ public class GpgDecrypt extends JFrame {
 	private class ContentPanel extends JPanel {
 
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 
@@ -72,7 +72,7 @@ public class GpgDecrypt extends JFrame {
 	@UiLayout(FlowLayout.class)
 	private class CommandPanel extends JPanel {
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 		@JButtonProperties(text = "Decrypt")
@@ -85,8 +85,8 @@ public class GpgDecrypt extends JFrame {
 	@UiBorderLayoutConstraint(BorderLayoutConstraint.SOUTH)
 	CommandPanel command;
 
-	void onDecrypt_actionPerformed(ActionEvent e) {
-		StringBuilder sb = new StringBuilder("gpg");
+	void onDecrypt_actionPerformed(final ActionEvent e) {
+		final StringBuilder sb = new StringBuilder("gpg");
 
 		sb.append(" --output ").append(content.outputFile.getText());
 		sb.append(" --decrypt ").append(content.inputFile.getText());
@@ -97,31 +97,31 @@ public class GpgDecrypt extends JFrame {
 			new Thread() {
 				@Override
 				public void run() {
-					InputStream in = process.getInputStream();
+					final InputStream in = process.getInputStream();
 					while (true) {
 						try {
-							int r = in.read();
+							final int r = in.read();
 							content.console.append(String.valueOf(r));
 							this.wait(1);
-						} catch (IOException e) {
+						} catch (final IOException e) {
 							e.printStackTrace();
 							break;
-						} catch (InterruptedException e) {
+						} catch (final InterruptedException e) {
 						}
 					}
 				}
 			}.start();
 
-			char[] password = content.password.getPassword();
-			byte[] pass = new byte[password.length];
+			final char[] password = content.password.getPassword();
+			final byte[] pass = new byte[password.length];
 			for (int i = 0; i < password.length; i++) {
-				pass[i] = (byte) password[i];
+				pass[i] = (byte)password[i];
 			}
 			process.getOutputStream().write(pass);
 			process.waitFor();
-		} catch (IOException e1) {
+		} catch (final IOException e1) {
 			e1.printStackTrace();
-		} catch (InterruptedException e1) {
+		} catch (final InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}

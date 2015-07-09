@@ -23,17 +23,17 @@ import javax.swing.SpringLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.components.JFrameProperties;
-import com.wpl.ui.factory.annotations.components.spinner.SpinnerIntegerModelProperties;
-import com.wpl.ui.factory.annotations.constraints.UiSpringGridConstraint;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JFrameProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.spinner.SpinnerIntegerModelProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiSpringGridConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 /**
- * 
+ *
  * @since 1.0
  */
 @JFrameProperties(frameCloseOperation = FrameCloseOperation.EXIT, title = "JSpinnerSample", windowPosition = WindowPosition.CENTER)
@@ -41,12 +41,11 @@ import com.wpl.ui.factory.enums.WindowPosition;
 @UiSpringGridConstraint(cols = 2)
 public class JSpinnerSample extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static Logger LOGGER = LoggerFactory
-			.getLogger(JSpinnerSample.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(JSpinnerSample.class);
 
 	@UiText("Spinner")
 	JLabel label1;
@@ -54,7 +53,7 @@ public class JSpinnerSample extends JFrame {
 	@SpinnerIntegerModelProperties(minimum = 0, maximum = 100, stepSize = 5, value = 0)
 	JSpinner integerSpinner;
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 
 		LOGGER.debug("Application Start");
 

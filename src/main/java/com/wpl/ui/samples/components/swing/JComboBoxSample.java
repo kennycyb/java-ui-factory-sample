@@ -24,55 +24,46 @@ import javax.swing.JFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiResource;
-import com.wpl.ui.factory.annotations.UiSimpleItems;
-import com.wpl.ui.factory.annotations.components.JFrameProperties;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiResource;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiSimpleItems;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JFrameProperties;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 @JFrameProperties(frameCloseOperation = FrameCloseOperation.EXIT, title = "JComboBoxSample", windowPosition = WindowPosition.CENTER)
 @UiLayout(FlowLayout.class)
 public class JComboBoxSample extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static Logger LOGGER = LoggerFactory
-			.getLogger(JComboBoxSample.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(JComboBoxSample.class);
 
-	@UiSimpleItems( { "Male", "Female" })
+	@UiSimpleItems({ "Male", "Female" })
 	JComboBox simpleComboBox;
 
 	@UiResource("JComboBoxSample-ComplexComboBox.xml")
 	JComboBox complexComboBox;
 
 	void onSimpleComboBox_itemStateChanged(final ItemEvent e) {
-		LOGGER
-				.debug(
-						"onSimpleComboBox_itemStateChanged: {} ({})",
-						e.getItem(),
-						e.getStateChange() == ItemEvent.DESELECTED ? "DESELECTED"
-								: e.getStateChange() == ItemEvent.ITEM_FIRST ? "ITEM_FIRST"
-										: e.getStateChange() == ItemEvent.ITEM_LAST ? "ITEM_LAST"
-												: e.getStateChange() == ItemEvent.ITEM_STATE_CHANGED ? "ITEM_STATE_CHANGED"
-														: e.getStateChange() == ItemEvent.SELECTED ? "SELECTED"
-																: "UNKNOWN");
+		LOGGER.debug("onSimpleComboBox_itemStateChanged: {} ({})", e.getItem(),
+				e.getStateChange() == ItemEvent.DESELECTED ? "DESELECTED"
+						: e.getStateChange() == ItemEvent.ITEM_FIRST ? "ITEM_FIRST"
+								: e.getStateChange() == ItemEvent.ITEM_LAST ? "ITEM_LAST"
+										: e.getStateChange() == ItemEvent.ITEM_STATE_CHANGED ? "ITEM_STATE_CHANGED"
+												: e.getStateChange() == ItemEvent.SELECTED ? "SELECTED" : "UNKNOWN");
 	}
 
 	void onComplexComboBox_itemStateChanged(final ItemEvent e) {
-		LOGGER
-				.debug(
-						"onComplexComboBox_itemStateChanged: {} ({})",
-						e.getItem(),
-						e.getStateChange() == ItemEvent.DESELECTED ? "DESELECTED"
-								: e.getStateChange() == ItemEvent.ITEM_FIRST ? "ITEM_FIRST"
-										: e.getStateChange() == ItemEvent.ITEM_LAST ? "ITEM_LAST"
-												: e.getStateChange() == ItemEvent.ITEM_STATE_CHANGED ? "ITEM_STATE_CHANGED"
-														: e.getStateChange() == ItemEvent.SELECTED ? "SELECTED"
-																: "UNKNOWN");
+		LOGGER.debug("onComplexComboBox_itemStateChanged: {} ({})", e.getItem(),
+				e.getStateChange() == ItemEvent.DESELECTED ? "DESELECTED"
+						: e.getStateChange() == ItemEvent.ITEM_FIRST ? "ITEM_FIRST"
+								: e.getStateChange() == ItemEvent.ITEM_LAST ? "ITEM_LAST"
+										: e.getStateChange() == ItemEvent.ITEM_STATE_CHANGED ? "ITEM_STATE_CHANGED"
+												: e.getStateChange() == ItemEvent.SELECTED ? "SELECTED" : "UNKNOWN");
 	}
 
 	public static void main(final String[] args) {

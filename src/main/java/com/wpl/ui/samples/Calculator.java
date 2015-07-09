@@ -20,11 +20,11 @@ import javax.swing.JFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.annotations.UiInit;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiInit;
 
 public class Calculator extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 7884990106070193622L;
 	@SuppressWarnings("unused")

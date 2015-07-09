@@ -27,20 +27,20 @@ import javax.swing.JToolBar;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiInit;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiResource;
-import com.wpl.ui.factory.annotations.UiScrollable;
-import com.wpl.ui.factory.annotations.components.JFrameProperties;
-import com.wpl.ui.factory.annotations.constraints.UiBorderLayoutConstraint;
-import com.wpl.ui.factory.enums.BorderLayoutConstraint;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.ScrollBarPolicy;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiInit;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiResource;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiScrollable;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JFrameProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiBorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.BorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.ScrollBarPolicy;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 /**
- * 
+ *
  * @since 1.0
  */
 @JFrameProperties(height = 600, width = 800, frameCloseOperation = FrameCloseOperation.EXIT, title = "JToolBarSample", windowPosition = WindowPosition.CENTER)
@@ -48,12 +48,11 @@ import com.wpl.ui.factory.enums.WindowPosition;
 public class JToolBarSample extends JFrame {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static Logger LOGGER = LoggerFactory
-			.getLogger(JToolBarSample.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(JToolBarSample.class);
 
 	@UiBorderLayoutConstraint(BorderLayoutConstraint.CENTER)
 	@UiScrollable(horizontal = ScrollBarPolicy.ALWAYS, vertical = ScrollBarPolicy.ALWAYS)
@@ -67,21 +66,17 @@ public class JToolBarSample extends JFrame {
 	void init() {
 	}
 
-	void onToolbar_actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(this,
-				"onToolbar_actionPerformed: " + e.getActionCommand());
+	void onToolbar_actionPerformed(final ActionEvent e) {
+		JOptionPane.showMessageDialog(this, "onToolbar_actionPerformed: " + e.getActionCommand());
 	}
 
 	void onToolbar_itemStateChanged(final ItemEvent e) {
-		LOGGER.debug(
-				"onToolbar_itemStateChanged: {} ({})",
-				e.getItem(),
+		LOGGER.debug("onToolbar_itemStateChanged: {} ({})", e.getItem(),
 				e.getStateChange() == ItemEvent.DESELECTED ? "DESELECTED"
 						: e.getStateChange() == ItemEvent.ITEM_FIRST ? "ITEM_FIRST"
 								: e.getStateChange() == ItemEvent.ITEM_LAST ? "ITEM_LAST"
 										: e.getStateChange() == ItemEvent.ITEM_STATE_CHANGED ? "ITEM_STATE_CHANGED"
-												: e.getStateChange() == ItemEvent.SELECTED ? "SELECTED"
-														: "UNKNOWN");
+												: e.getStateChange() == ItemEvent.SELECTED ? "SELECTED" : "UNKNOWN");
 	}
 
 	public static void main(final String[] args) {

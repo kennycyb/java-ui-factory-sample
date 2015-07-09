@@ -23,23 +23,23 @@ import javax.swing.JFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.components.JFrameProperties;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JFrameProperties;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 /**
- * 
+ *
  * @since 1.0
  */
-@JFrameProperties(frameCloseOperation = FrameCloseOperation.EXIT, height = 600, width = 800, title = "MouseMotionListener", windowPosition = WindowPosition.CENTER)
+@JFrameProperties(frameCloseOperation = FrameCloseOperation.EXIT, height = 600, width = 800, title = "MouseMotionListener",
+		windowPosition = WindowPosition.CENTER)
 public class MouseListenerSample extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	private static Logger LOGGER = LoggerFactory
-			.getLogger(MouseListenerSample.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(MouseListenerSample.class);
 
 	void onMouseListenerSample_mouseDragged(final MouseEvent e) {
 		LOGGER.debug("onMouseListenerSample_mouseDragged: {}", e.getPoint());

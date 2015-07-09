@@ -29,39 +29,38 @@ import javax.swing.SpringLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.components.JFrameProperties;
-import com.wpl.ui.factory.annotations.components.JProgressBarProperties;
-import com.wpl.ui.factory.annotations.constraints.UiBorderLayoutConstraint;
-import com.wpl.ui.factory.annotations.constraints.UiSpringGridConstraint;
-import com.wpl.ui.factory.enums.BorderLayoutConstraint;
-import com.wpl.ui.factory.enums.FrameCloseOperation;
-import com.wpl.ui.factory.enums.Orientation;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JFrameProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JProgressBarProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiBorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiSpringGridConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.BorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.FrameCloseOperation;
+import com.github.kennycyb.uifactory.core.factory.enums.Orientation;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 /**
- * 
+ *
  * @since 1.0
  */
 @JFrameProperties(frameCloseOperation = FrameCloseOperation.EXIT, title = "JProgressBarSample", windowPosition = WindowPosition.CENTER)
 @UiLayout(BorderLayout.class)
 public class JProgressBarSample extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private static Logger LOGGER = LoggerFactory
-			.getLogger(JProgressBarSample.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(JProgressBarSample.class);
 
 	@UiLayout(SpringLayout.class)
 	@UiSpringGridConstraint(cols = 2)
 	class CenterPanel extends JPanel {
 
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 
@@ -82,7 +81,7 @@ public class JProgressBarSample extends JFrame {
 	class ButtonPanel extends JPanel {
 
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 		@UiText("Start")
@@ -96,34 +95,30 @@ public class JProgressBarSample extends JFrame {
 	ButtonPanel south;
 
 	void onStart_actionPerformed(final ActionEvent e) {
-		new Thread(new Runnable() {
+		new Thread(() -> {
 
-			@Override
-			public void run() {
+			final JButton sender = (JButton)e.getSource();
+			sender.setEnabled(false);
 
-				JButton sender = (JButton) e.getSource();
-				sender.setEnabled(false);
+			for (int i = 0; i <= 100; i++) {
 
-				for (int i = 0; i <= 100; i++) {
+				center.vertical.setValue(i);
+				center.horizontal.setValue(i);
 
-					center.vertical.setValue(i);
-					center.horizontal.setValue(i);
+				LOGGER.debug("setValue={}", i);
 
-					LOGGER.debug("setValue={}", i);
-
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+				try {
+					Thread.sleep(100);
+				} catch (final InterruptedException e1) {
+					e1.printStackTrace();
 				}
-
-				sender.setEnabled(true);
 			}
+
+			sender.setEnabled(true);
 		}).start();
 	}
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		SwingFactory.create(JProgressBarSample.class).setVisible(true);
 	}
 }

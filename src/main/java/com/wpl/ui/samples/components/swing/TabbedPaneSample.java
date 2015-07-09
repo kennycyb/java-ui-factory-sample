@@ -26,20 +26,20 @@ import javax.swing.JTextField;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.factory.SwingFactory;
-import com.wpl.ui.factory.annotations.UiAddComponentTo;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiName;
-import com.wpl.ui.factory.annotations.UiSize;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.components.JTextFieldProperties;
-import com.wpl.ui.factory.annotations.constraints.UiBorderLayoutConstraint;
-import com.wpl.ui.factory.annotations.frame.UiWindowPosition;
-import com.wpl.ui.factory.enums.BorderLayoutConstraint;
-import com.wpl.ui.factory.enums.WindowPosition;
+import com.github.kennycyb.uifactory.core.factory.SwingFactory;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiAddComponentTo;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiName;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiSize;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.components.JTextFieldProperties;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiBorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.annotations.frame.UiWindowPosition;
+import com.github.kennycyb.uifactory.core.factory.enums.BorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.WindowPosition;
 
 /**
- * 
+ *
  * @since 1.0
  */
 @UiWindowPosition(WindowPosition.CENTER)
@@ -47,18 +47,17 @@ import com.wpl.ui.factory.enums.WindowPosition;
 @UiLayout(BorderLayout.class)
 public class TabbedPaneSample extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@SuppressWarnings("unused")
-	private static Logger LOGGER = LoggerFactory
-			.getLogger(TabbedPaneSample.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(TabbedPaneSample.class);
 
 	public static class Tab1 extends JPanel {
 
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 		@JTextFieldProperties(text = "Tab1")
@@ -69,7 +68,7 @@ public class TabbedPaneSample extends JFrame {
 	private class Tab2 extends JPanel {
 
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 		@SuppressWarnings("unused")

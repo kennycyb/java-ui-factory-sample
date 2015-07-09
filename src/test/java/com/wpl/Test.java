@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-import com.wpl.ui.ext.gridview.GridView;
+import com.github.kennycyb.uifactory.ext.gridview.GridView;
 import com.wpl.ui.samples.model.Person;
 
 public class Test {
@@ -12,22 +12,21 @@ public class Test {
 	private GridView<Person> gridview;
 
 	@org.junit.Test
-	public void genericTest() throws SecurityException, NoSuchFieldException,
-			ClassNotFoundException {
+	public void genericTest() throws SecurityException, NoSuchFieldException, ClassNotFoundException {
 
-		Field field = this.getClass().getDeclaredField("gridview");
+		final Field field = this.getClass().getDeclaredField("gridview");
 
-		ParameterizedType type = (ParameterizedType) field.getGenericType();
+		final ParameterizedType type = (ParameterizedType)field.getGenericType();
 
-		Type actualType = type.getActualTypeArguments()[0];
+		final Type actualType = type.getActualTypeArguments()[0];
 
 		System.out.println(actualType);
 
-		Class<?> cls = (Class<?>) actualType;
+		final Class<?> cls = (Class<?>)actualType;
 
-		Field[] fields = cls.getDeclaredFields();
+		final Field[] fields = cls.getDeclaredFields();
 
-		for (Field f : fields) {
+		for (final Field f : fields) {
 			System.out.println(f.getName());
 		}
 	}

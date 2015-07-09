@@ -27,21 +27,21 @@ import javax.swing.JTextArea;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.wpl.ui.events.EventHandler;
-import com.wpl.ui.factory.annotations.UiLayout;
-import com.wpl.ui.factory.annotations.UiScrollable;
-import com.wpl.ui.factory.annotations.UiText;
-import com.wpl.ui.factory.annotations.constraints.UiBorderLayoutConstraint;
-import com.wpl.ui.factory.enums.BorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.events.EventHandler;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiLayout;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiScrollable;
+import com.github.kennycyb.uifactory.core.factory.annotations.UiText;
+import com.github.kennycyb.uifactory.core.factory.annotations.constraints.UiBorderLayoutConstraint;
+import com.github.kennycyb.uifactory.core.factory.enums.BorderLayoutConstraint;
 
 /**
- * 
+ *
  * @since 1.0
  */
 @UiLayout(BorderLayout.class)
 public class ExternalPanel extends JPanel {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1384552017351526875L;
 
@@ -56,7 +56,7 @@ public class ExternalPanel extends JPanel {
 	class CommandPanel extends JPanel {
 
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 
@@ -73,14 +73,14 @@ public class ExternalPanel extends JPanel {
 	final EventHandler<CustomEventArgs> customEvent = new EventHandler<CustomEventArgs>();
 	final EventHandler<CustomEventArgs> exitEvent = new EventHandler<CustomEventArgs>();
 
-	void onButton_actionPerformed(ActionEvent e) {
+	void onButton_actionPerformed(final ActionEvent e) {
 		JOptionPane.showMessageDialog(this, "click me! Clicked");
 		content.append("click me! Clicked\n");
 
 		customEvent.invoke(new CustomEventArgs(this, "Click Me"));
 	}
 
-	void onExit_actionPerformed(ActionEvent e) {
+	void onExit_actionPerformed(final ActionEvent e) {
 		exitEvent.invoke(new CustomEventArgs(this, "Exit"));
 	}
 }
